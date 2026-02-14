@@ -1,7 +1,8 @@
 # camera_io
+
 Api for managing one or more connected cameras, with mock implementation and automated test.
 
-
+[![CI](https://github.com/dec1/camera_io/actions/workflows/ci.yaml/badge.svg)](https://github.com/dec1/camera_io/actions/workflows/ci.yaml)
 
 Each attached hardware camera is encapsulated by a [Camera](cpp/jo_camera.h) object. 
 A [CameraMan](cpp/jo_camera_man.h) object manages the set of all connected cameras.

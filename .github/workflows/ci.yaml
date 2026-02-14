@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      # Install OpenCV and other common C++ build tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libopencv-dev cmake g++
+
+    - name: Configure CMake
+      # We point CMake to the 'cpp' directory where CMakeLists.txt lives
+      run: cmake -S . -B build
+
+    - name: Build
+      run: cmake --build build
+
+    # Optional: If you have tests or a binary to run
+    # - name: Run Test
+    #   run: ./build/camera_io_test  # Replace with actual binary name if applicable
